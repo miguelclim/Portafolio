@@ -1,0 +1,13 @@
+---
+import ProjectCard from "./ProjectCard.astro";
+import projects from "../data/proyectos";
+---
+
+<article class="flex flex-col w-full">
+    <header class="flex w-full justify-between mx-5 md:mx-2">
+        <div class="text-xl w-full font-bold mb-2">Proyectos</div>
+    </header>
+    <section class="gap-1 grid md:grid-cols-2 grid-cols-1">
+        {projects.map((project) => <ProjectCard {...project} />)}
+    </section>
+</article>

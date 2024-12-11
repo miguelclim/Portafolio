@@ -1,0 +1,16 @@
+---
+import { Icon } from "astro-icon/components";
+const { label, main } = Astro.props;
+---
+<>
+{
+    main&&(
+    <Icon name=`logos:${label}` size="20px" />
+    )
+}
+{
+    !main&&(
+    <div class="badge badge-ghost h-[20px]">{label}</div>
+    )
+}
+</>

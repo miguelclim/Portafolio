@@ -1,0 +1,46 @@
+---
+import JobCard from "./JobItem.astro";
+import jobs from "../data/experiencia";
+---
+
+<article class="flex flex-col w-full">
+  <header class="flex w-full justify-between mx-5 md:mx-2">
+    <div class="text-xl w-full mb-2 font-bold">Experiencia</div>
+  </header>
+  {
+    /*<section class="flex flex-col gap-1">
+        {jobs.map((job) => <JobCard {...job} />)}
+    </section>*/
+  }
+  <ul
+    class="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical mx-5 md:mx-2"
+  >
+    {
+      jobs.map((job, index) => (
+        <>
+          <li>
+            {index != 0 && <hr />}
+            {index % 2 === 0 ? (
+              <JobCard
+                titulo={job.titulo}
+                periodo={job.periodo}
+                descripcion={job.descripcion}
+                right={true}
+              />
+            ):(
+              <JobCard
+                titulo={job.titulo}
+                periodo={job.periodo}
+                descripcion={job.descripcion}
+                right={false}
+              />
+            )
+            }
+            <hr/>
+            {/*{jobs.length - 1 > index && <hr />}*/}
+          </li>
+        </>
+      ))
+    }
+  </ul>
+</article>

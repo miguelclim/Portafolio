@@ -1,0 +1,30 @@
+---
+import type { Proyecto } from "../data/proyectos";
+import ProjectCardTitle from "./ProjectCardTitle.astro";
+import Tech from "./Tech.astro";
+
+type Props = Proyecto;
+const {
+  titulo,
+  tecnologia_principal,
+  tecnologias,
+  descripcion,
+  link,
+  repositorio,
+} = Astro.props;
+---
+
+<div class="mx-5 md:mx-2">
+  <div
+    class="card bg-base-100 border border-neutral-300 hover:border-neutral-500 transition ease-in-out hover:scale-[101%]"
+  >
+    <div class="card-body md:items-start items-center">
+      <ProjectCardTitle title={titulo} href={link} repositorio={repositorio} />
+      <p>{descripcion}</p>
+      <div class="card-actions">
+        <Tech label={tecnologia_principal} , main={true} />
+        {tecnologias.map((tecnologia) => <Tech label={tecnologia} />)}
+      </div>
+    </div>
+  </div>
+</div>

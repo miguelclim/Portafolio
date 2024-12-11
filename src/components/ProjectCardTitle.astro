@@ -1,0 +1,31 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import { Icon } from "astro-icon/components";
+import ProjectLink from "./ProjectLink.astro";
+
+type Props = HTMLAttributes<"a"> & {
+  title: string;
+  repositorio: string;
+};
+const { title, repositorio, ...props } = Astro.props;
+---
+
+<div class="flex flex-row justify-between w-full ">
+  <a href={props.href} target="_blank">
+    <label for="" class="group cursor-pointer">
+      <div class="flex gap-1">
+        <div class="card-title">
+          {title}
+          <Icon
+            name="mdi:link-variant"
+            class="group-hover:scale-[125%] group-hover:text-base-content "
+            size="16px"
+          />
+        </div>
+      </div>
+    </label>
+  </a>
+  <div class="card-title">
+    <ProjectLink label="" icon="github" href={repositorio}/>
+  </div>
+</div>

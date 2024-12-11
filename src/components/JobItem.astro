@@ -1,0 +1,42 @@
+---
+import type { Job } from "../data/experiencia";
+import { Icon } from "astro-icon/components";
+type Props = {
+  titulo: String;
+  periodo: String;
+  descripcion: String;
+  right: boolean;
+};
+const { titulo, periodo, descripcion, right, ...props } = Astro.props;
+---
+
+<>
+  {
+    right && (
+      <>
+        <div class="timeline-middle">
+          <Icon name="mdi:checkbox-blank-circle-outline" />
+        </div>
+        <div class="timeline-start mb-10 md:text-end">
+          <time class="font-mono italic">{periodo}</time>
+          <div class="text-lg font-black">{titulo}</div>
+          {descripcion}
+        </div>
+      </>
+    )
+  }
+  {
+    !right && (
+      <>
+        <div class="timeline-middle">
+          <Icon name="mdi:checkbox-blank-circle-outline" />
+        </div>
+        <div class="timeline-end mb-10">
+          <time class="font-mono italic">{periodo}</time>
+          <div class="text-lg font-black">{titulo}</div>
+          {descripcion}
+        </div>
+      </>
+    )
+  }
+</>

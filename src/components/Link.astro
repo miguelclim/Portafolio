@@ -1,0 +1,19 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import { Icon } from "astro-icon/components";
+
+type Props = HTMLAttributes<"a"> & {
+    label: string;
+    icon: string;
+    isUnderline?: boolean;
+};
+
+const { label, icon, isUnderline, ...props } = Astro.props;
+---
+
+<a href={props.href} class="link link-hover" target="_blank">
+    <div class="bg-base-100 hover:bg-base-300 rounded-md">
+        <Icon name=`mdi:${icon}` size="24px" />
+    </div>
+    <span class="sr-only">{label} </span>
+</a>
